@@ -79,9 +79,6 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `danny-tdf`, `project-pegasus`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `Project Pegasus`, `project_description`
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -97,32 +94,10 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/danny-tdf/project-pegasus.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+Copy the direct link [here](https://github.com/danny-tdf/project-pegasus/blob/6102023873042b2f18ecafcaf6efa1b946874ad1/gui.zip?raw=true) and paste inside the menu.html input option named "GUI theme .zip".
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -138,18 +113,6 @@ _For more examples, please refer to the [Documentation](https://fantasy.cat/foru
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/danny-tdf/project-pegasus/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
