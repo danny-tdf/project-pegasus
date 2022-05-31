@@ -197,4 +197,6 @@ Don't forget to give the project a star! Thanks again!
 [stars-url]: https://github.com/danny-tdf/project-pegasus/stargazers
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
 [issues-url]: https://github.com/danny-tdf/project-pegasus/issues
+[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-url]: https://github.com/danny-tdf/project-pegasus/blob/gui/LICENSE
 [product-screenshot]: assets/screenshot.png
