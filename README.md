@@ -108,7 +108,7 @@ Copy the direct link [here](https://github.com/danny-tdf/project-pegasus/blob/61
 
 * Configure your settings.
 * Manage your scripts and edit them.
-* User friendly command line for toggling your scripts and manage your web interface.
+* User friendly command line for toggling your scripts and managing your web interface.
 
 _For more examples, please refer to the [Documentation](https://fantasy.cat/forums/index.php?threads/project-pegasus.6272/)_
 
