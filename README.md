@@ -180,7 +180,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
+* [Moyo](https://fantasy.cat/forums/index.php?members/moyo.7567/)
 * []()
 * []()
 
