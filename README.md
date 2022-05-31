@@ -54,7 +54,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]]
 
 
 
@@ -75,6 +75,8 @@
 ### Installation
 
 Copy the direct link [here](https://github.com/danny-tdf/project-pegasus/blob/6102023873042b2f18ecafcaf6efa1b946874ad1/gui.zip?raw=true) and paste inside the menu.html input option named "GUI theme .zip".
+
+<img src="https://i.imgur.com/q3g9zsU.png">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
