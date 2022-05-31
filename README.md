@@ -106,7 +106,9 @@ Copy the direct link [here](https://github.com/danny-tdf/project-pegasus/blob/61
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+* Configure your settings.
+* Manage your scripts and edit them.
+* User friendly command line for toggling your scripts and manage your web interface.
 
 _For more examples, please refer to the [Documentation](https://fantasy.cat/forums/index.php?threads/project-pegasus.6272/)_
 
