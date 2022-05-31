@@ -74,7 +74,7 @@
 
 ### Installation
 
-Copy the direct link [here](https://github.com/danny-tdf/project-pegasus/blob/6102023873042b2f18ecafcaf6efa1b946874ad1/gui.zip?raw=true) and paste inside the menu.html input option named "GUI theme .zip".
+Copy the direct link [here](https://github.com/danny-tdf/project-pegasus/blob/6102023873042b2f18ecafcaf6efa1b946874ad1/gui.zip?raw=true) and paste inside the menu.html input option named "GUI theme .zip". Use it with your [GUI Installer](https://fantasy.cat/forums/index.php?threads/gui-installer-automatically-install-themes.6278/) to automatically install the latest version!
 
 <img src="https://i.imgur.com/q3g9zsU.png">
 
