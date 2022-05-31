@@ -164,5 +164,5 @@ Don't forget to give the project a star! Thanks again!
 [issues-shield]: https://img.shields.io/github/issues/danny-tdf/project-pegasus.svg?style=for-the-badge
 [issues-url]: https://github.com/danny-tdf/project-pegasus/issues
 [license-shield]: https://img.shields.io/github/license/danny-tdf/project-pegasus.svg?style=for-the-badge
-[license-url]: https://github.com/danny-tdf/project-pegasus/blob/gui/LICENSE
+[license-url]: https://github.com/danny-tdf/project-pegasus/blob/gui/LICENSE.txt
 [product-screenshot]: assets/Screenshot.png
