@@ -1,0 +1,345 @@
+<!--
+    @title
+        Project Pegasus
+    @author
+        d4nny - https://fantasy.cat/forums/index.php?members/d4nny.8927/
+    @notes
+        Be aware that some of these settings are be hardcoded. I also have no idea what I am doing :D
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--Meta-->
+  <title>Control Panel | Project Pegasus</title>
+  <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Scripts-->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+    integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/b-2.2.2/datatables.min.js"></script>
+
+  <script src="../../../js/fantasy.constellation.js"></script>
+  <script src="../JS/constellation.js"></script>
+  <script src="../JS/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+
+
+  <!--Style-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+
+
+
+
+
+<body>
+  <!--Main Navigation-->
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img style="width:40px;" class="logo rounded-pill"
+            src="https://i.imgur.com/EXtpDmr.png" alt="https://www.flaticon.com/authors/iconmark"></a>
+        <ul id="controlBtns" hidden class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" id="start_button" onclick="start_constellation()"
+              title="Start fantasy.constellation - Calibrate"><img
+                src="https://64.media.tumblr.com/1a4bad47e30b8e584251616f5ff4f0b4/284a3aef4dd92fd1-d6/s250x400/506462491e04d097a26b10e675c7ee57beaf6f71.png"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="hwid_spoofer" onclick="fantasy_cmd(this, 'hwid_spoofer')"
+              title="HWID Spoofer/Trust Factor Eraser"><img
+                src="https://64.media.tumblr.com/8d37476f87ec234bf0f3be980c9aa2db/284a3aef4dd92fd1-5f/s250x400/0c3053a4f835ff151e5bdc18e4a29c727f13b130.png"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="exit_button" onclick="fantasy_cmd(this, 'exit'); $('#controlBtns').prop('hidden', true);" title="Exit"><img
+                src="https://64.media.tumblr.com/22477a3135fd360e7098cd8d194bc743/284a3aef4dd92fd1-f3/s250x400/b48912068de6e33b633e253151c441fa35dedc90.png"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="reload_scripts" onclick="fantasy_cmd(this, 'reload_scripts')"
+              title="Reload Lua Scripts"><img
+                src="https://64.media.tumblr.com/2963d5020ca68e3e76e85d61c418e428/284a3aef4dd92fd1-2a/s400x600/aa61fdc257810f431a22caf898fa011e4847ed03.png"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="load_config" onclick="fantasy_cmd(this, 'load')" title="Load Configuration"><img
+                src="https://64.media.tumblr.com/da711c2e708ab5fddc83b66757d85c2d/a66385f23c7bff8c-b5/s540x810/f5acdc9189ee2f188fc8baaa15e5c9d64850d1cf.png"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="save_config" onclick="fantasy_cmd(this, 'save')" title="Save Configuration"><img
+                src="https://64.media.tumblr.com/1782a6b1e63f9efeb2f438b95b5ce242/284a3aef4dd92fd1-e1/s540x810/050ed8b180b9f68698a0b852b6392790753300d5.png"></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+      <div class="position-sticky">
+        <div style="padding-top: 1rem; height: 10rem;" class="text-center container-fluid">
+          <a id="userProfile" href="#" class="text-decoration-none">
+            <img id="userAvatar" style="width:90px;" class="mx-auto d-block navbar-brand rounded-pill"
+              src="https://i.imgur.com/VTAeGDp.png">
+            <strong id="forumUsername" class="username--style6 username">Username</strong><br>
+            <span id="forumGroup" style="color: rgba(254,254,254,0.7);">Group</span><br>
+            <span id="forumSubGroup" style="color: rgba(254,254,254,0.5);">SubGroup</span>
+            <span id="forumGroupVIP" style="display: hidden; color: rgba(255,215,0, 0.8); font-weight: 600;">VIP</span>
+          </a>
+        </div>
+        <div class="selection list-group mt-5">
+          <a href="menu.html" class="hover text-decoration-none text-white-50 py-3"  aria-current="true">
+            <i class="fas fa-tachometer-alt fa-fw me-3" ></i><span>Control Panel</span>
+          </a>
+          <a href="scripts.html" class="hover text-decoration-none text-white-50 py-3">
+            <i class="fas fa-chart-area fa-fw me-3"></i><span>Script Management</span>
+          </a>
+          <a href="stats.html" class="hover text-decoration-none text-white-50 py-3">
+            <i class="fas fa-chart-area fa-fw me-3"></i><span>Statistics</span>
+          </a>
+          <a href="console.html" class="hover text-decoration-none text-white-50 py-3">
+            <i class="fas fa-chart-area fa-fw me-3"></i><span>Member's Panel</span>
+          </a>
+          <a onclick="logout();" href="#" class="hover text-decoration-none text-white-50 py-3">
+            <i class="fas fa-chart-area fa-fw me-3"></i><span>Logout</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+
+  <!--Main layout-->
+  <main class="content-wrapper" style="margin-top: 65px;">
+    <div class="container justify-content-center">
+      <div class="content ">
+
+
+
+
+        <div id="gameMenu" class="row text-center" hidden>
+          <div class="row mt-4">
+            <h1>Select your game.</h1>
+          </div>
+          <div class="row mt-4"><a onclick="start_constellation()" class="csgo text-white"
+              href="steam://run/730/">CS:GO</a></div>
+          <div class="row mt-4"><a onclick="start_constellation()" class="tf2 text-white" href="steam://run/440/">Team
+              Fortress 2</a></div>
+          <div class="row mt-4"><a onclick="start_constellation()" class="csSource text-white"
+              href="steam://run/240/">CS Source</a></div>
+          <div class="row mt-4"><a onclick="start_constellation()" class="dota2 text-white" href="steam://run/570/">Dota
+              2</a></div>
+          <div class="row mt-4"><a onclick="start_constellation()" title="Skip and calibrate. Game is already running"
+              class="skip text-white-50">Skip and calibrate</a></div>
+        </div>
+
+
+
+
+
+        <div id="settings" style="display: none;">
+
+          <div class="humanizer box-header content-box draggable">
+
+            
+
+            <div>
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="humanizer">
+              <label title="Toggle the humanizer." for="humanizer">Humanizer</label><br />
+              <input onchange="fantasy_cmd(this, 'set')" type="number" value="1" name="humanizer_key">
+              <label title="Button that activates humanizer." for="humanizer_key">Humanizer Key #1 <a
+                  href="https://cherrytree.at/misc/vk.htm">?</a></label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="number" value="0" name="humanizer_key2">
+              <label title="Optional 2nd Button to activate humanizer. 0 means no key." for="humanizer_key">Humanizer
+                Key #2 <a href="https://cherrytree.at/misc/vk.htm">?</a></label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="humanizer_friendly_fire">
+              <label title="Humanizer will shoot at people on the same team. Good for deathmatching."
+                for="humanizer">Humanizer Friendly Fire</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="humanizer_jump_check">
+              <label title="Humanizer will try to shoot targets who are jumping." for="humanizer">Humanizer Jump
+                Check</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="humanizer_bone_priority">
+              <label
+                title="Humanizer will only try to either shoot the head, chest or stomach area instead of everything from the waist up."
+                for="humanizer">Humanizer Bone Priority</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="number" min="0" value="50"
+                name="humanizer_mouse_threshold">
+              <label
+                title="Humanizer will not move your mouse more than a certain amount of pixels. Do not touch unless you find the humanizer flicking or spinning your crosshair."
+                for="humanizer_mouse_threshold">Humanizer Mouse Threshold</label><br />
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="humanizer_anxiety">
+              <label
+                title="Lowers your actual mouse sensitivity/DPI (not CS:GO/TF2/CSS) whenever you are aiming. This will help you lock better on your target. Works side-by-side with the regular humanizer."
+                for="humanizer_anxiety">Humanizer #2 (Sensitivity/Anxiety/Pro)</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="number" min="2" value="3"
+                name="humanizer_anxiety_strength">
+              <label title="Determines the strength of how much Constellation will lower your mouse sensitivity."
+                for="humanizer_anxiety_strength">Humanizer #2 Strength</label><br />
+            </div>
+          </div>
+
+          <div class="triggerbot box-header content-box draggable ">
+            <div>
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="triggerbot">
+              <label title="Automatically shoots a target when your crosshair is overlapping." for="humanizer">Standard
+                Triggerbot</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="humanizer_triggerbot">
+              <label
+                title="Automatically shoots a target when your crosshair is overlapping or near the target. However this is done whilst the humanizer calculation is active."
+                for="humanizer_triggerbot">Humanizer Triggerbot</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="number" value="0" name="humanizer_triggerbot_key">
+              <label title="Button that activates triggerbot." for="humanizer_triggerbot_key">Triggerbot Key <a
+                  href="https://cherrytree.at/misc/vk.htm">?</a></label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="number" min="0" value="0"
+                name="humanizer_triggerbot_sleep">
+              <label
+                title="This will make the triggerbot freeze for X amount of milliseconds before shooting. Nobody has an instant reaction time."
+                for="humanizer_triggerbot_sleep">Triggerbot Sleep (Milliseconds)</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" step="0.01" type="number" min="0" value="0.02"
+                name="humanizer_triggerbot_sensitivity">
+              <label
+                title="This determines how sensitive the Humanizer Triggerbot will be when it's near a target. Don't touch unless you feel the Humanizer Triggerbot is shooting too early."
+                for="humanizer_triggerbot_sensitivity">Triggerbot Sensitivity</label><br />
+            </div>
+          </div>
+
+
+
+          <div class="rcs box-header content-box draggable ">
+            <div>
+              <div name="weapon_information">Weapon Information: N/A</div>
+
+              <input onchange="fantasy_cmd(this, 'set weapon')" type="number" value="-1" min="-1"
+                name="humanizer_weapon_bone">
+              <label title="This will make the humanizer focus on a specific body part/bone. -1 to disable."
+                for="humanizer_weapon_bone">Bone</label><br />
+
+              <button onclick="fantasy_cmd(this, 'get weapon')">Refresh Current Weapon</button>
+            </div>
+          </div>
+
+
+
+          <div class="esp box-header content-box draggable ">
+            <div>
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="esp">
+              <label title="Toggle the ESP feature." for="esp">ESP</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="corsair">
+              <label
+                title="If you own a Corsair or Logitech device, the colors will flash whenever your crosshair is near an enemy (even behind a wall)"
+                for="corsair">LED ESP (Corsair)</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="logitech">
+              <label
+                title="If you own a Corsair or Logitech device, the colors will flash whenever your crosshair is near an enemy (even behind a wall)"
+                for="logitech">LED ESP (Logitech)</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="esp_sound">
+              <label title="Whenever your crosshair is near an enemy (even behind a wall), a sound is played."
+                for="esp_sound">Sound ESP</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="esp_sonar">
+              <label
+                title="Whenever your crosshair is near an enemy (even behind a wall), a sound is played, except the closer you are to the target, the faster it will play."
+                for="esp_sound">Sonar ESP</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="esp_sound_surround">
+              <label
+                title="Whenever your crosshair is near an enemy (even behind a wall), a sound is played, except if the target on your left side, your left speaker/headset will play the sound. If on your right side, it will do the same."
+                for="esp_sound">Sound ESP (Surround)</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set weapon')" type="number" value="5" name="esp_sound_fov">
+              <label
+                title="The sensitivity of when the ESP features will activate. The larger the number, the bigger the distance that will trigger the ESP."
+                for="esp_sound_fov">Sound ESP FOV</label><br />
+            </div>
+
+          </div>
+
+
+          <div class="box-header content-box draggable" id="tf2" style="display: none">
+            <div>
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="humanizer_tf2_autobackstab">
+              <label title="If you are on Sniper and you are scoped in, the humanizer will prioritize the head."
+                for="humanizer_tf2_autobackstab">TF2 Headshot Mode</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="checkbox" name="humanizer_tf2_autobackstab">
+              <label title="If you are on Spy, you will automatically backstab an enemy when available."
+                for="humanizer_tf2_autobackstab">TF2 Autobackstab</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="number" value="0" name="humanizer_tf2_autobackstab_key">
+              <label title="TF2 Autobackstab except it works like a triggerbot."
+                for="humanizer_tf2_autobackstab_key">TF2 Autobackstab Key <a
+                  href="https://cherrytree.at/misc/vk.htm">?</a></label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="number" value="0" name="esp_medic">
+              <label
+                title="If an enemy medic has uber, used uber or has dropped uber, Constelia will tell you about it. This is perfect for competitive play."
+                for="esp_medic">Medic Sound ESP (Charge/Uber/Drop Alerts)</label><br />
+
+              <input onchange="fantasy_cmd(this, 'set')" type="number" value="0" name="esp_spy">
+              <label
+                title="If you put your crosshair over a disguised enemy Spy, Constelia will tell you that it's a spy."
+                for="esp_spy">Spy Sound ESP (Disguised/Cloaked)</label><br />
+            </div>
+          </div>
+
+          <div id="lua" class="content-box draggable">
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+  </main>
+</body>
+
+</html>

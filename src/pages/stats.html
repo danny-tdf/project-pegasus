@@ -1,0 +1,150 @@
+<!--
+    @title
+        Project Pegasus
+    @author
+        d4nny - https://fantasy.cat/forums/index.php?members/d4nny.8927/
+    @notes
+        Be aware that some of these settings are be hardcoded. I also have no idea what I am doing :D
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta-->
+    <title>Statistics | Project Pegasus</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/b-2.2.2/datatables.min.js"></script>
+
+    <script src="../../../js/fantasy.constellation.js"></script>
+    <script src="../JS/constellation.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/stats.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+
+
+    <!--Style-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/stats.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+
+
+
+
+
+<body>
+    <!--Main Navigation-->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-sm fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img style="width:40px;" class="logo rounded-pill"
+                        src="https://i.imgur.com/EXtpDmr.png" alt="https://www.flaticon.com/authors/iconmark"></a>
+                <ul id="controlBtns" hidden class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="start_button" onclick="start_constellation()"
+                            title="Start fantasy.constellation - Calibrate"><img
+                                src="https://64.media.tumblr.com/1a4bad47e30b8e584251616f5ff4f0b4/284a3aef4dd92fd1-d6/s250x400/506462491e04d097a26b10e675c7ee57beaf6f71.png"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="hwid_spoofer" onclick="fantasy_cmd(this, 'hwid_spoofer')"
+                            title="HWID Spoofer/Trust Factor Eraser"><img
+                                src="https://64.media.tumblr.com/8d37476f87ec234bf0f3be980c9aa2db/284a3aef4dd92fd1-5f/s250x400/0c3053a4f835ff151e5bdc18e4a29c727f13b130.png"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="exit_button"
+                            onclick="fantasy_cmd(this, 'exit'); $('#controlBtns').prop('hidden', true);"
+                            title="Exit"><img
+                                src="https://64.media.tumblr.com/22477a3135fd360e7098cd8d194bc743/284a3aef4dd92fd1-f3/s250x400/b48912068de6e33b633e253151c441fa35dedc90.png"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="reload_scripts" onclick="fantasy_cmd(this, 'reload_scripts')"
+                            title="Reload Lua Scripts"><img
+                                src="https://64.media.tumblr.com/2963d5020ca68e3e76e85d61c418e428/284a3aef4dd92fd1-2a/s400x600/aa61fdc257810f431a22caf898fa011e4847ed03.png"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="load_config" onclick="fantasy_cmd(this, 'load')"
+                            title="Load Configuration"><img
+                                src="https://64.media.tumblr.com/da711c2e708ab5fddc83b66757d85c2d/a66385f23c7bff8c-b5/s540x810/f5acdc9189ee2f188fc8baaa15e5c9d64850d1cf.png"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="save_config" onclick="fantasy_cmd(this, 'save')"
+                            title="Save Configuration"><img
+                                src="https://64.media.tumblr.com/1782a6b1e63f9efeb2f438b95b5ce242/284a3aef4dd92fd1-e1/s540x810/050ed8b180b9f68698a0b852b6392790753300d5.png"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
+            <div class="position-sticky">
+                <div style="padding-top: 1rem; height: 10rem;" class="text-center container-fluid">
+                    <a id="userProfile" href="#" class="text-decoration-none">
+                        <img id="userAvatar" style="width:90px;" class="mx-auto d-block navbar-brand rounded-pill"
+                            src="https://i.imgur.com/VTAeGDp.png">
+                        <strong id="forumUsername" class="username--style6 username">Username</strong><br>
+                        <span id="forumGroup" style="color: rgba(254,254,254,0.7);">Group</span><br>
+                        <span id="forumSubGroup" style="color: rgba(254,254,254,0.5);">SubGroup</span>
+                        <span id="forumGroupVIP" style="display: hidden; color: rgba(255,215,0, 0.8); font-weight: 600;">VIP</span>
+
+                    </a>
+                </div>
+                <div class="selection list-group mt-5">
+                    <a href="menu.html" class="hover text-decoration-none text-white-50 py-3" aria-current="true">
+                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Control Panel</span>
+                    </a>
+                    <a href="scripts.html" class="hover text-decoration-none text-white-50 py-3">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Script Management</span>
+                    </a>
+                    <a href="stats.html" class="hover text-decoration-none text-white-50 py-3">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Statistics</span>
+                    </a>
+                    <a href="console.html" class="hover text-decoration-none text-white-50 py-3">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Member's Panel</span>
+                    </a>
+                    <a onclick="logout();" href="#" class="hover text-decoration-none text-white-50 py-3">
+                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Logout</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <!--Main layout-->
+    <main class="content-wrapper" style="margin-top: 65px;">
+        <div class="container justify-content-center">
+
+            <embed src="https://beta.leetify.com/app">
+
+
+        </div>
+    </main>
+</body>
+
+</html>
