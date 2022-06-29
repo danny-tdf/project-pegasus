@@ -37,8 +37,6 @@
   <p align="center">
     Web interface for fantasy.cat products.
     <br />
-    <a href="https://github.com/danny-tdf/project-pegasus">View Demo</a>
-    ·
     <a href="https://github.com/danny-tdf/project-pegasus/issues">Report Bug</a>
     ·
     <a href="https://github.com/danny-tdf/project-pegasus/issues">Request Feature</a>
