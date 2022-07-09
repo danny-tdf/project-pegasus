@@ -76,7 +76,7 @@ The menu will require your license key in order for you to use it. For the momen
 
 ### Installation
 
-Copy the direct link [here](https://github.com/danny-tdf/project-pegasus/blob/6102023873042b2f18ecafcaf6efa1b946874ad1/gui.zip?raw=true) and paste inside the menu.html input option named "GUI theme .zip". Use it with your [GUI Installer](https://fantasy.cat/forums/index.php?threads/gui-installer-automatically-install-themes.6278/) to automatically install the latest version!
+Copy the direct link [here](https://github.com/danny-tdf/project-pegasus/blob/fa3ff2edf50a2243201411124c1cdee1a81b1ede/gui.zip) and paste inside the menu.html input option named "GUI theme .zip". Use it with your [GUI Installer](https://fantasy.cat/forums/index.php?threads/gui-installer-automatically-install-themes.6278/) to automatically install the latest version!
 
 <img src="https://i.imgur.com/q3g9zsU.png">
 
