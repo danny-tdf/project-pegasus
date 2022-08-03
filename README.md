@@ -45,6 +45,7 @@
 
 
 
+![Screenshot (9)](https://user-images.githubusercontent.com/85001712/182676396-c7bacf12-ce19-4c92-9ded-704098adccd0.png)
 
 
 
@@ -52,7 +53,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Product Name Screen Shot][product-screenshot]
+
 The menu will require your license key in order for you to use it. For the moment it only uses the key to retrieve some forum and user data but the plan, in the longer run, is to use some of the statistics and steamID info that it provides in order to put together some graphs. With that being said, you are free to review the code and see what it does with your license. The license is stored inside localStorage for easier access and I was planning on hashing it but then I realized that there's no point in doing that since the http calls are in plaintext and show the key and I cannot change them. This is also a perfect segway to a possible question that some of you might have. "Why leetify?". To be frankly honest, I am planning on building Pegasus' own stats and graphs but making a csgo-stats like website or feature isn't necessarily a walk in the park. Therefore, I decided to release the menu as is otherwise God knows when I would release it.
 
 2nd point: The console takes a few commands but I want to encourage EVERYBODY to either leave recommendations for commands in this thread or to release your own commands for others to use and/or get implemented in the embedded files down below.
