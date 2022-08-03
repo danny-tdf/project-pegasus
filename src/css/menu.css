@@ -1,0 +1,278 @@
+html, body {
+  margin: 0; 
+  height: 100%; 
+  overflow-x: hidden; 
+  overflow-y: hidden;
+}
+body {
+  color: rgba(254,254,254,0.8);
+}
+a{
+  cursor:pointer;
+}
+#lua:empty {
+  display:none;
+}
+
+.content-box {
+  color: rgba(224,224,224,0.8);
+  background: rgba(47,0,74,0.55);
+  width: max-content;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(254,254,254,0.3);
+  margin: 5px;
+  position: absolute;
+}
+
+.content-box a {
+  text-decoration: none;
+  color: coral;
+}
+.container {
+  position: relative;
+  display: flex;
+  color: white;
+  height: 100vh;
+}
+
+.logo {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1);
+}
+.navbar-nav img {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1);
+  width: 25px;
+}
+.navbar-nav > li{
+  padding-right:30px;
+}
+#gameMenu {
+  position: absolute;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+}
+
+
+
+.row a {
+  height: 70px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 70px;
+  font-size: 25px;
+  background-color: rgb(33, 4, 50);
+  font-weight: 600;
+  
+}
+.row a:hover{
+  background-color: #b40096;
+} 
+.skip {
+  height: 70px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 45px;
+  font-weight: 300 !important;
+  font-size: 16px !important;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+.content-wrapper {
+  background-image: url(https://i.imgur.com/KvMqkHP.jpeg);
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: grey;
+}
+.navbar .nav-link {
+  color: rgba(254,254,254,0.5);
+}
+.navbar .nav-link:hover {
+  color: rgba(254,254,254);
+}
+@media (min-width: 991.98px) {
+  main {
+    padding-left: 240px;
+  }
+}
+
+.navbar {
+  z-index: 601;
+  background-color: rgb(33, 4, 50);
+}
+
+
+.sidebar {
+  background-color: rgb(33, 4, 50);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 66px 0 0;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 240px;
+  z-index: 600;
+}
+
+.sidebar .hover:hover {
+  color: #fbfbfb !important;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(255, 241, 111, 0.699);
+}
+
+input, button {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(254,254,254,0.3);
+  background-color: rgba(53, 18, 73, 0.5);
+}
+
+input[type=checkbox]:checked {
+  background: rgba(53, 18, 73, 0.3) !important;
+  color: rgba(33, 4, 50, 0.9);
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(33, 4, 50, 0.9); 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background:rgba(33, 4, 50, 0.9); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(33, 4, 50, 0.9); 
+}
+
+.username--banned {
+  text-decoration: line-through
+}
+
+.username--style2 {
+  color: #00FF00
+}
+
+.username--style3 {
+  color: #e74c3c;
+}
+
+.username--style4 {
+  color: mediumpurple;
+}
+
+.username--style6 {
+  color: #bf80ff;
+}
+
+.username--style18 {
+  color: green;
+  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(transparent, transparent), url(https://media3.giphy.com/media/RGdmZ4EiSGJbXrUIsP/giphy.gif?cid=ecf05e47tm5p4hhlotzs89p77q2zzygvxcs06roc6pqpcgm6&rid=giphy.gif&ct=g) repeat;
+  background: -o-linear-gradient(transparent, transparent);
+  -webkit-background-clip: text;
+  border: none;
+  font-size: 1.0em
+}
+
+.username--style25 {
+  color: blue;
+  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(transparent, transparent), url(https://media1.giphy.com/media/dB66K4Kywc8gPVh6A7/giphy.gif?cid=790b7611bf8c977730c637e69732a3c18797606843c96a06&rid=giphy.gif&ct=g) repeat;
+  background: -o-linear-gradient(transparent, transparent);
+  -webkit-background-clip: text;
+  border: none
+}
+
+.username--style28 {
+  color: green;
+  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(transparent, transparent), url(https://media.giphy.com/media/URZcG7uLd9h4s/giphy.gif) repeat;
+  background: -o-linear-gradient(transparent, transparent);
+  -webkit-background-clip: text;
+  border: none;
+  font-size: 1.0em
+}
+
+.username--style29 {
+  color: red;
+  -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(transparent, transparent), url(https://fantasy.cat/members/images/glitter.gif) repeat;
+  background: -o-linear-gradient(transparent, transparent);
+  -webkit-background-clip: text;
+  border: none;
+  font-size: 1.0em
+}
+
+.username--style31 {
+  color: #809fff
+}
+
+.userBanner {
+  font-size: 75%;
+  font-weight: 400;
+  font-style: normal;
+  padding: 1px 15px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  text-align: center;
+  display: inline-block
+}
+
+.userBanner strong {
+  font-weight: inherit
+}
+
+.userBanner.userBanner--hidden {
+  background: none;
+  border: none;
+  box-shadow: none
+}
+
+.userBanner.userBanner--staff,
+.userBanner.userBanner--primary {
+  color: #dbdaea;
+  background: #202038;
+  border-color: #333358
+}
+
+.userBanner.userBanner--accent {
+  color: #fff;
+  background: rgba(69, 67, 117, 0.9);
+  border-color: rgba(88, 85, 149, 0.9)
+}
+
