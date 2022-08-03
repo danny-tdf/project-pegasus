@@ -1,5 +1,7 @@
 var __EVAL = (s) => eval(`void (__EVAL = ${__EVAL}); ${s}`);
 
+
+
 $(function () {
     var term = $('#cOutput').terminal({
         whoami: function () {
@@ -19,13 +21,15 @@ $(function () {
             [[b;#664D03;#FFF3CD] help ] - Display this message.
             [[b;#664D03;#FFF3CD] ping ] - Test command. Returns 'Pong!'
             [[b;#664D03;#FFF3CD] whoami ] - Display the currently logged user.
-            [[b;#664D03;#FFF3CD] h ] - Display detailed information about a certain command. Use without brackets '[]'.
+            [[b;#664D03;#FFF3CD] h 'command' ] - Display detailed information about a certain command. Use without ''.
             [[b;#664D03;#FFF3CD] clear ] - Clears the terminal.
             [[b;#664D03;#FFF3CD] cleardata ] - Clear Pegasus data stored inside localStorage.
             [[b;#664D03;#FFF3CD] get ] - Get information about scripts. Type h get for list of available arguments.
             [[b;#664D03;#FFF3CD] toggle ] - Toggles fantasy.cat scripts on or off.
             [[b;#664D03;#FFF3CD] launch ] - Launch your favourite games.
-            [[b;#664D03;#FFF3CD] set ] - Customizes the menu!.
+            [[b;#664D03;#FFF3CD] set ] - Customizes the menu!
+            [[b;#664D03;#FFF3CD] calibrate ] - Calibrate fantasy.constellation.
+            [[b;#664D03;#FFF3CD] exit ] - Exit fantasy.constellation.
 
             `);
             term.echo('[[b;white;red] ALL COMMANDS  AND ARGUMENTS ARE CASE SENSITIVE! ]');
@@ -198,11 +202,16 @@ $(function () {
                         $('.navbar').css('background-color', arg2)
                         $('.sidebar').css('background-color', arg2)
                         term.echo('[[;yellow;]Colors changed!]')
+                    } else {
+                        term.echo('[[;red;]Please specify a valid hex color!]')
                     }
                     break;
                 case('background'):
-                    if(!arg2){term.echo('[[;red;]Please specify a valid URL!]');break;}
-
+                    if(!arg2){
+                        term.echo('[[;red;]Empty field or invalid URL! Please provide a valid URL!]');
+                        break;
+                    }
+                    
                     var pattern = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/; 
                     if(pattern.test(arg2)){   
                         $('.content-wrapper').css('background-image', `url(${arg2})`);
@@ -211,12 +220,51 @@ $(function () {
                     }
                     break;    
             }
+        },
+        calibrate: function(){
+            term.echo('[[;yellow;]Calibrating fantasy.constellation.]')
+            start_constellation();
+        },
+        exit: function(){
+            term.echo('[[;yellow;]Exiting fantasy.constellation.]')
+            fantasy_cmd(this, 'exit');
+        },
+        cloud: function(arg1, arg2, arg3){
+            if (!arg1){
+                term.echo('[[;red;]Expected at least 1 argument!]')
+            }
+            switch(arg1){
+                case ('config'):
+                    $.each(cfg, function(k, v){
+                        term.echo(`${k}: ${v}\n`)
+                    });
+                    break;
+                case ('constellation'):
+                    if (!arg2){
+                        term.echo('[[;red;]Third and forth arguments are required!]')
+                    };
+                    let exists = arg2 in cfg
+                    if(!exists){
+                        term.echo('[[;red;]Argument not found.');
+                    }else {
+                        cfg[arg2] = arg3    
+                        local.set('config', cfg[arg2] = arg3);
+                        console.log(cfg)
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            key: key,
+                            software: software,
+                            value: cfg[arg2] = arg3
+                          });
+                    };
+            }
         }
     }, {
         greetings: greetings.innerHTML+'\nType: help.\n',
         name: 'pegasus',
         height: 200,
-        prompt: forums.username + ' - pegasus [[;red;]>>> ] ',
+        prompt: forums.username + ' @ Pegasus [[;red;]> ] ',
         checkArity: false
     });
 });
